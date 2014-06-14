@@ -15,7 +15,7 @@ public class ShippingCancelled
 
 	@Override
 	public String toString() {
-		return "ProductReturned [orderId=" + orderId + "]";
+		return "ShippingCancelled [orderId=" + orderId + "]";
 	}
 	
 }
