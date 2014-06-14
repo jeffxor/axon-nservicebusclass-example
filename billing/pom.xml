@@ -34,12 +34,12 @@
 			<artifactId>slf4j-api</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.axon.sales.events</groupId>
+			<groupId>org.axon.sales</groupId>
 			<artifactId>sales-events</artifactId>
 			<version>${sales.events.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.axon.billing.events</groupId>
+			<groupId>org.axon.billing</groupId>
 			<artifactId>billing-events</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>

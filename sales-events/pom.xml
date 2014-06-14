@@ -8,7 +8,7 @@
 		<artifactId>axon-nservicebusclass-example</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<groupId>org.axon.sales.events</groupId>
+	<groupId>org.axon.sales</groupId>
 	<artifactId>sales-events</artifactId>
 	<name>sales-events</name>
 	<url>http://maven.apache.org</url>

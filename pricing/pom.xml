@@ -15,6 +15,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<sales.events.version>0.0.1-SNAPSHOT</sales.events.version>
+		<pricing.events.version>0.0.1-SNAPSHOT</pricing.events.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -34,7 +35,12 @@
 			<artifactId>slf4j-api</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.axon.sales.events</groupId>
+			<groupId>org.axon.pricing</groupId>
+			<artifactId>pricing-events</artifactId>
+			<version>${pricing.events.version}</version>
+		</dependency>	
+		<dependency>
+			<groupId>org.axon.sales</groupId>
 			<artifactId>sales-events</artifactId>
 			<version>${sales.events.version}</version>
 		</dependency>	

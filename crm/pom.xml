@@ -34,14 +34,14 @@
 			<artifactId>slf4j-api</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.axon.sales.events</groupId>
-			<artifactId>sales-events</artifactId>
-			<version>${sales.events.version}</version>
-		</dependency>
-		<dependency>
 			<groupId>org.axon.crm</groupId>
 			<artifactId>crm-events</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>org.axon.sales</groupId>
+			<artifactId>sales-events</artifactId>
+			<version>${sales.events.version}</version>
 		</dependency>
 	</dependencies>
 </project>
