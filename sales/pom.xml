@@ -14,7 +14,34 @@
 	<url>http://maven.apache.org</url>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<sales.events.version>0.0.1-SNAPSHOT</sales.events.version>
 	</properties>
 	<dependencies>
+		<dependency>
+			<groupId>org.axonframework</groupId>
+			<artifactId>axon-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.axon.sales</groupId>
+			<artifactId>sales-events</artifactId>
+			<version>${sales.events.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.axon.sales</groupId>
+			<artifactId>sales-commands</artifactId>
+			<version>${sales.events.version}</version>
+		</dependency>	
 	</dependencies>
 </project>
