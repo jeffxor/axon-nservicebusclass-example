@@ -38,5 +38,10 @@
 			<artifactId>sales-events</artifactId>
 			<version>${sales.events.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.axon.billing.events</groupId>
+			<artifactId>billing-events</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 </project>
