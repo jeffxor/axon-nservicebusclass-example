@@ -8,7 +8,7 @@
 		<artifactId>axon-nservicebusclass-example</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<groupId>org.axon.shipping.commands</groupId>
+	<groupId>org.axon.shipping</groupId>
 	<artifactId>shipping-commands</artifactId>
 	<name>shipping-commands</name>
 	<url>http://maven.apache.org</url>
