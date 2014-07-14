@@ -8,13 +8,11 @@
 		<artifactId>axon-nservicebusclass-example</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<groupId>org.axon.billing</groupId>
-	<artifactId>billing</artifactId>
-	<name>billing</name>
+	<artifactId>amqp-infrastructure</artifactId>
+	<name>amqp-infrastructure</name>
 	<url>http://maven.apache.org</url>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<sales.events.version>0.0.1-SNAPSHOT</sales.events.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -30,43 +28,28 @@
 			<artifactId>axon-mongo</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>org.springframework.amqp</groupId>
+			<artifactId>spring-amqp</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context-support</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-beans</artifactId>
+			<groupId>org.springframework.amqp</groupId>
+			<artifactId>spring-rabbit</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-mongodb</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
+			<groupId>com.rabbitmq</groupId>
+			<artifactId>amqp-client</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.axon.sales</groupId>
-			<artifactId>sales-events</artifactId>
-			<version>${sales.events.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.axon.billing</groupId>
-			<artifactId>billing-events</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>org.axon</groupId>
-			<artifactId>amqp-infrastructure</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<groupId>org.quartz-scheduler</groupId>
+			<artifactId>quartz</artifactId>
 		</dependency>
 	</dependencies>
 </project>
