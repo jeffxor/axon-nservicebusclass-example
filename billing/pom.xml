@@ -54,6 +54,10 @@
 			<artifactId>slf4j-api</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>org.axon.sales</groupId>
 			<artifactId>sales-events</artifactId>
 			<version>${sales.events.version}</version>

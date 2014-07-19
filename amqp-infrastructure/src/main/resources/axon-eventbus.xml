@@ -1,48 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:axon="http://www.axonframework.org/schema/core"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:axon="http://www.axonframework.org/schema/core"
 	xmlns:axon-amqp="http://www.axonframework.org/schema/amqp"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.axonframework.org/schema/amqp http://www.axonframework.org/schema/axon-amqp.xsd
 		http://www.axonframework.org/schema/core http://www.axonframework.org/schema/axon-core.xsd">
-
-    <axon:annotation-config/>
-    <axon:command-bus id="commandBus"/>
-    <axon:event-bus id="eventBus" terminal="terminal"/>
-
-	<axon-amqp:terminal id="terminal" 
-	                    connection-factory="amqpConnectionFactory" 
-	                    serializer="serializer"
-	                    durable="true"
-	                    transactional="true"
-	                    exchange-name="${axon.rabbitmq.exchange}">
-	    <axon-amqp:default-configuration transaction-manager="transactionManager"
-	                                     transaction-size="25" prefetch="200"
-	                                     error-handler="loggingErrorHandler"/>
-	</axon-amqp:terminal>
-		
-	<!-- <axon:saga-manager id="scanningSagaManager" base-package="com.billing.saga"
-                   saga-repository="sagaRepostory" event-bus="eventBus"/> -->
-                   
-	<bean id="schedulerFactoryBean" class="org.springframework.scheduling.quartz.SchedulerFactoryBean"/>
-	<!-- Event scheduler for the saga -->
-	<bean id="axonEventScheduler" class="org.axonframework.eventhandling.scheduling.quartz.QuartzEventScheduler">
-		<property name="eventBus" ref="eventBus"></property>
-		<property name="scheduler" ref="schedulerFactoryBean"></property>
-	</bean>                   
-                   
-    <bean id="eventStore" class="org.axonframework.eventstore.mongo.MongoEventStore">
-        <constructor-arg ref="mongoEventStoreTemplate"/>
-    </bean>
-
-    <bean id="sagaRepository" class="org.axonframework.saga.repository.mongo.MongoSagaRepository">    	
-        <constructor-arg ref="mongoSagaTemplate"/>
-        <property name="resourceInjector">
-            <bean class="org.axonframework.saga.spring.SpringResourceInjector"/>
-        </property>
-    </bean>                   
 	
-	<bean id="loggingErrorHandler" class="org.springframework.scheduling.support.TaskUtils$LoggingErrorHandler"/>
+	<axon:command-bus id="commandBus" />
+	<axon:event-bus id="eventBus" terminal="terminal"/>
 
+	<axon-amqp:terminal id="terminal" exchange-name="${axon.rabbitmq.exchange}" 
+		connection-factory="amqpConnectionFactory" serializer="serializer" >
+		<axon-amqp:default-configuration
+			transaction-manager="transactionManager" transaction-size="25" 
+			prefetch="200" error-handler="loggingErrorHandler" />
+	</axon-amqp:terminal>
+
+	<axon:cluster id="defaultCluster" default="true" >
+		<axon:meta-data>
+			<entry key="AMQP.Config">
+				<axon-amqp:configuration transaction-size="20000" queue-name="${axon.rabbitmq.cluster.queue.name}" exclusive="false"/>
+			</entry>
+		</axon:meta-data>
+	</axon:cluster>
+
+	 <bean id="schedulerFactoryBean" class="org.springframework.scheduling.quartz.SchedulerFactoryBean"/>
+	 	<!-- Event scheduler for the saga  --> 
+		<bean id="axonEventScheduler" class="org.axonframework.eventhandling.scheduling.quartz.QuartzEventScheduler"> 
+		<property name="eventBus" ref="eventBus"></property> <property name="scheduler" 
+		ref="schedulerFactoryBean"></property>
+	</bean>
+
+	<bean id="eventStore" class="org.axonframework.eventstore.mongo.MongoEventStore">
+		<constructor-arg ref="mongoEventStoreTemplate" />
+	</bean>
+
+	<bean id="sagaRepository"
+		class="org.axonframework.saga.repository.mongo.MongoSagaRepository">
+		<constructor-arg ref="mongoSagaTemplate" />
+		<property name="resourceInjector">
+			<bean class="org.axonframework.saga.spring.SpringResourceInjector" />
+		</property>
+	</bean>
+
+	<bean id="loggingErrorHandler"
+		class="org.springframework.scheduling.support.TaskUtils$LoggingErrorHandler" />
+
+ 
 </beans>

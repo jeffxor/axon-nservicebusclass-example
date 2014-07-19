@@ -23,7 +23,7 @@
     </bean>
 
 	<beans profile="default">
-	    <mongo:db-factory id="mongoDbFactory" dbname="axonNServiceBus" host="127.0.0.1" port="27017"/>
+	    <mongo:db-factory id="mongoDbFactory" dbname="${mongo.database.name}" host="127.0.0.1" port="27017"/>
 	</beans>
 	
 <!--     <beans profile="cloud">

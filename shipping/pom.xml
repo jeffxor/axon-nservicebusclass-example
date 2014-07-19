@@ -34,6 +34,10 @@
 			<artifactId>slf4j-api</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>org.axon.shipping</groupId>
 			<artifactId>shipping-events</artifactId>
 			<version>${shipping.events.version}</version>
@@ -42,6 +46,16 @@
 			<groupId>org.axon.shipping</groupId>
 			<artifactId>shipping-commands</artifactId>
 			<version>${shipping.events.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.axon.billing</groupId>
+			<artifactId>billing-events</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>org.axon</groupId>
+			<artifactId>amqp-infrastructure</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 </project>

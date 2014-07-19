@@ -1,7 +1,9 @@
 package org.shipping;
 
-import org.axonframework.commandhandling.CommandBus;
-import org.axonframework.commandhandling.GenericCommandMessage;
+import java.util.Scanner;
+
+import org.axonframework.domain.GenericEventMessage;
+import org.axonframework.eventhandling.EventBus;
 import org.shipping.commands.ReturnProduct;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -11,13 +13,16 @@ public class ShippingApp
     public static void main( String[] args )
     {
     	ApplicationContext context =
-    		    new ClassPathXmlApplicationContext(new String[] {"crm.xml"});
-    	CommandBus commandBus = context.getBean(CommandBus.class);
+    		    new ClassPathXmlApplicationContext(new String[] {"shipping.xml", "axon-eventbus.xml", 
+    		    		"amqp-config.xml", "persistence-infrastructure-context.xml"});
+    	EventBus eventBus = context.getBean(EventBus.class);
+    	
+    	Scanner scanner = new Scanner(System.in);
         while (true)
         {
-            System.out.println("Enter customer ID:");
-            String customerId = System.console().readLine();
-            commandBus.dispatch(new GenericCommandMessage<ReturnProduct>(new ReturnProduct(customerId)));            
+            System.out.println("Enter order ID:");
+            String orderId = scanner.nextLine();
+            eventBus.publish(new GenericEventMessage<ReturnProduct>(new ReturnProduct(orderId)));
         }
-    }
+    }    
 }
