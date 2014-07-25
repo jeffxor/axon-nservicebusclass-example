@@ -57,5 +57,10 @@
 			<artifactId>amqp-infrastructure</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		<dependency>
+			<groupId>org.axon.sales</groupId>
+			<artifactId>sales-events</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 </project>

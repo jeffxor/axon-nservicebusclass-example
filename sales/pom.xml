@@ -42,6 +42,16 @@
 			<groupId>org.axon.sales</groupId>
 			<artifactId>sales-commands</artifactId>
 			<version>${sales.events.version}</version>
-		</dependency>	
+		</dependency>
+		<dependency>
+			<groupId>org.axon.crm</groupId>
+			<artifactId>crm-events</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>org.axon.pricing</groupId>
+			<artifactId>pricing-events</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 </project>
